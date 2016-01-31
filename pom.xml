@@ -1,23 +1,37 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>bifroest-heimdall</artifactId>
+  <groupId>io.bifroest</groupId>
+  <artifactId>heimdall</artifactId>
   <version>1.0.3-SNAPSHOT</version>
-  <name>bifroest-heimdall</name>
   <packaging>jar</packaging>
 
-  <parent>
-    <groupId>com.goodgame.profiling</groupId>
-    <artifactId>profiling-base</artifactId>
-    <version>3.0.0</version>
-  </parent>
-
   <properties>
-    <commonsVersion> 26.9.0 </commonsVersion>
-    <bifroestClientVersion>0.4.3</bifroestClientVersion>
+    <commonsVersion>26.9.2-SNAPSHOT</commonsVersion>
+    <bifroestClientVersion>0.4.4-SNAPSHOT</bifroestClientVersion>
+
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencies>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.hamcrest</groupId>
+        <artifactId>hamcrest-all</artifactId>
+        <version>1.3</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-all</artifactId>
+        <version>1.10.19</version>
+        <scope>test</scope>
+    </dependency>
     <!-- ################################################## -->
     <dependency>
       <groupId>org.kohsuke.metainf-services</groupId>
@@ -27,15 +41,15 @@
 
     <!-- ################################################## -->
     <dependency>
-      <groupId>com.goodgame.profiling</groupId>
-      <artifactId>profiling-commons</artifactId>
+      <groupId>io.bifroest</groupId>
+      <artifactId>commons</artifactId>
       <version>${commonsVersion}</version>
     </dependency>
     <!-- ################################################## -->
    
     <dependency>
-      <groupId>com.goodgame.profiling</groupId>
-      <artifactId>bifroest-bifroest-client</artifactId>
+      <groupId>io.bifroest</groupId>
+      <artifactId>bifroest-client</artifactId>
       <version>${bifroestClientVersion}</version>
     </dependency> 
   </dependencies>
@@ -47,7 +61,7 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.3.2</version>
         <configuration>
-          <mainClass>com.goodgame.profiling.commons.GenericMain</mainClass>
+          <mainClass>io.bifroest.commons.GenericMain</mainClass>
           <systemProperties>
             <systemProperty>
               <key>log4j.configurationFile</key>
@@ -56,9 +70,36 @@
           </systemProperties>
           <arguments>
             <argument>test/config/</argument>
-            <argument>com.goodgame.profiling.bifroest_heimdall.HeimdallEnvironment</argument>
+            <argument>io.bifroest.heimdall.HeimdallEnvironment</argument>
           </arguments>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+            <compilerArgument>-Xlint:unchecked</compilerArgument>
+            <source>1.8</source>
+            <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+          <groupId>org.eluder.coveralls</groupId>
+          <artifactId>coveralls-maven-plugin</artifactId>
+          <version>4.1.0</version>
+      </plugin>
+      <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>0.7.5.201505241946</version>
+          <executions>
+              <execution>
+                  <id>prepare-agent</id>
+                  <goals>
+                      <goal>prepare-agent</goal>
+                  </goals>
+              </execution>
+          </executions>
       </plugin>
     </plugins>
   </build>

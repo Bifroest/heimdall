@@ -1,4 +1,4 @@
-package com.goodgame.profiling.bifroest_heimdall.commands;
+package io.bifroest.heimdall.commands;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -12,12 +12,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.kohsuke.MetaInfServices;
 
-import com.goodgame.profiling.bifroest.bifroest_client.BifroestClient;
-import com.goodgame.profiling.bifroest.bifroest_client.BifroestClientSystem;
-import com.goodgame.profiling.bifroest.bifroest_client.EnvironmentWithBifroestClient;
-import com.goodgame.profiling.commons.model.Interval;
-import com.goodgame.profiling.commons.systems.net.jsonserver.Command;
-import com.goodgame.profiling.graphite_retentions.MetricSet;
+import io.bifroest.bifroest_client.BifroestClient;
+import io.bifroest.bifroest_client.BifroestClientSystem;
+import io.bifroest.bifroest_client.EnvironmentWithBifroestClient;
+import io.bifroest.commons.model.Interval;
+import io.bifroest.commons.net.jsonserver.Command;
+import io.bifroest.retentions.MetricSet;
 
 @MetaInfServices
 public class GetValuesCommmand<E extends EnvironmentWithBifroestClient> implements Command<E> {

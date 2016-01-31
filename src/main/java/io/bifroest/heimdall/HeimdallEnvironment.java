@@ -1,11 +1,11 @@
-package com.goodgame.profiling.bifroest_heimdall;
+package io.bifroest.heimdall;
 
 import java.nio.file.Path;
 
-import com.goodgame.profiling.bifroest.bifroest_client.BifroestClient;
-import com.goodgame.profiling.bifroest.bifroest_client.EnvironmentWithMutableBifroestClient;
-import com.goodgame.profiling.commons.boot.InitD;
-import com.goodgame.profiling.commons.systems.common.AbstractCommonEnvironment;
+import io.bifroest.bifroest_client.BifroestClient;
+import io.bifroest.bifroest_client.EnvironmentWithMutableBifroestClient;
+import io.bifroest.commons.boot.InitD;
+import io.bifroest.commons.environment.AbstractCommonEnvironment;
 
 public class HeimdallEnvironment extends AbstractCommonEnvironment
         implements EnvironmentWithMutableBifroestClient {

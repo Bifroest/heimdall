@@ -1,4 +1,4 @@
-package com.goodgame.profiling.bifroest_heimdall.commands;
+package io.bifroest.heimdall.commands;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -11,11 +11,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.kohsuke.MetaInfServices;
 
-import com.goodgame.profiling.bifroest.bifroest_client.BasicClient.MetricState;
-import com.goodgame.profiling.bifroest.bifroest_client.BifroestClient;
-import com.goodgame.profiling.bifroest.bifroest_client.BifroestClientSystem;
-import com.goodgame.profiling.bifroest.bifroest_client.EnvironmentWithBifroestClient;
-import com.goodgame.profiling.commons.systems.net.jsonserver.Command;
+import io.bifroest.bifroest_client.BasicClient.MetricState;
+import io.bifroest.bifroest_client.BifroestClient;
+import io.bifroest.bifroest_client.BifroestClientSystem;
+import io.bifroest.bifroest_client.EnvironmentWithBifroestClient;
+import io.bifroest.commons.net.jsonserver.Command;
 
 @MetaInfServices
 public class GetSubMetricsCommand<E extends EnvironmentWithBifroestClient> implements Command<E> {
